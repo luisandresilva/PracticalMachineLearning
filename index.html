@@ -189,6 +189,7 @@ cat(&quot;train size : &quot;, dim(train), &quot; | valid size : &quot;, dim(val
 <h3>Fit Models</h3>
 <div id="fit-random-forest" class="section level4">
 <h4>Fit Random Forest</h4>
+<p>The random forest algorithm was chosen because it is explainable since it generates multiple trees that vote for the final classification.</p>
 <pre class="r"><code>library(randomForest)
 model &lt;- randomForest(classe ~ ., data=train)
 preds &lt;- predict(model, newdata = valid)
@@ -198,8 +199,9 @@ conf$overall[&quot;Accuracy&quot;]</code></pre>
 ## 0.9989785</code></pre>
 </div>
 </div>
-<div id="predictions" class="section level3">
-<h3>Predictions</h3>
+<div id="prediction" class="section level3">
+<h3>Prediction</h3>
+<p>Finally, the prediction of the 20 test samples is done.</p>
 <pre class="r"><code>preds &lt;- predict(model, newdata = test)
 preds</code></pre>
 <pre><code>##  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 

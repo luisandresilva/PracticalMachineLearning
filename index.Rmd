@@ -75,6 +75,7 @@ cat("train size : ", dim(train), " | valid size : ", dim(valid), " | test  size 
 ### Fit Models
 
 #### Fit Random Forest
+The random forest algorithm was chosen because it is explainable since it generates multiple trees that vote for the final classification.
 ```{r}
 library(randomForest)
 model <- randomForest(classe ~ ., data=train)
@@ -83,8 +84,9 @@ conf <- confusionMatrix(preds,valid$classe)
 conf$overall["Accuracy"]
 ```
 
-### Predictions
+### Prediction
 
+Finally, the prediction of the 20 test samples is done.
 ```{r}
 preds <- predict(model, newdata = test)
 preds
